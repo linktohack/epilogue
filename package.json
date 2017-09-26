@@ -10,6 +10,7 @@
     }
   ],
   "main": "lib/",
+  "types": "lib/index.d.ts",
   "scripts": {
     "jshint": "jshint ./lib ./tests",
     "mocha": "mocha --check-leaks -R spec -u exports tests/*.test.js tests/**/*.test.js",
@@ -39,6 +40,9 @@
     "lodash": "^4.8.2"
   },
   "devDependencies": {
+    "@types/body-parser": "^1.16.5",
+    "@types/express": "^4.0.37",
+    "@types/sequelize": "^4.0.74",
     "body-parser": "^1.13.3",
     "chai": "^3.2.0",
     "express": "^4.13.3",
@@ -48,6 +52,6 @@
     "request": "^2.60.0",
     "restify": "^4.0.3",
     "sequelize": "^3.5.1",
-    "sqlite3": "^3.0.9"
+    "sqlite3": "^3.1.12"
   }
 }
