@@ -94,7 +94,7 @@ declare module 'epilogue' {
 
     type Handler = (req: Request, res: Response, context: Context) => Promise<any>
 
-    interface Context {
+    export interface Context {
         skip: Promise<any>;
         stop: Promise<any>;
         continue: Promise<any>;
