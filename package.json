@@ -42,16 +42,16 @@
   "devDependencies": {
     "@types/body-parser": "^1.16.5",
     "@types/express": "^4.0.37",
-    "@types/sequelize": "^4.0.74",
+    "@types/sequelize": "^4.0.76",
     "body-parser": "^1.13.3",
     "chai": "^3.2.0",
-    "express": "^4.13.3",
+    "express": "^4.16.1",
     "istanbul": "^0.4.0",
     "jshint": "^2.8.0",
     "mocha": "^2.2.5",
-    "request": "^2.60.0",
+    "request": "^2.83.0",
     "restify": "^4.0.3",
-    "sequelize": "^3.5.1",
+    "sequelize": "^4.0.74",
     "sqlite3": "^3.1.12"
   }
 }

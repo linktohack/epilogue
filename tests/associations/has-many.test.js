@@ -203,7 +203,74 @@ describe('Associations(HasMany)', function() {
       });
     });
 
+    it('should return sorted associated data', function (done) {
+      request.get({
+        url: test.baseUrl + '/users?sort=-tasks.id'
+      }, function (error, response, body) {
+        expect(response.statusCode).to.equal(200);
+        var result = _.isObject(body) ? body : JSON.parse(body);
+        expect(result).to.eql([
+          {
+            "app": null,
+            "app_id": null,
+            "id": 2,
+            "name": "ninja",
+            "tasks": [
+              { id: 4, name: 'fight', user_id: 2 }
+            ]
+          },
+          {
+            "app": null,
+            "app_id": null,
+            "id": 1,
+            "name": "sumo",
+            "tasks": [
+              { id: 3, name: 'eat again', user_id: 1 },
+              { id: 2, name: 'sleep', user_id: 1 },
+              { id: 1, name: 'eat', user_id: 1 }
+            ]
+          }
+        ]);
 
+        test.resource.associationOptions.removeForeignKeys = false;
+        done();
+      });
+    });
+
+    it('should return sorted associated data(2)', function (done) {
+      request.get({
+        url: test.baseUrl + '/users?sort=-tasks.name'
+      }, function (error, response, body) {
+        expect(response.statusCode).to.equal(200);
+        var result = _.isObject(body) ? body : JSON.parse(body);
+        expect(result).to.eql([
+          {
+            "app": null,
+            "app_id": null,
+            "id": 1,
+            "name": "sumo",
+            "tasks": [
+              { id: 2, name: 'sleep', user_id: 1 },
+              { id: 3, name: 'eat again', user_id: 1 },
+              { id: 1, name: 'eat', user_id: 1 }
+            ]
+          },
+          {
+            "app": null,
+            "app_id": null,
+            "id": 2,
+            "name": "ninja",
+            "tasks": [
+              { id: 4, name: 'fight', user_id: 2 }
+            ]
+          },
+
+        ]);
+
+        test.resource.associationOptions.removeForeignKeys = false;
+        done();
+      });
+    });
   });
 
 });
